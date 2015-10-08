@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>MinimumOSVersion</key>
-	<string>3.0</string>
+	<string>5.2</string>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	  <key>CFBundleIconFiles</key>
-    <array>
-        <string>Resources/icon-57.png</string>
-        <string>Resources/icon-114.png</string>
-        <string>Resources/icon-72.png</string>
-        <string>Resources/icon-144.png</string>
-        <string>Resources/icon-29.png</string>
-        <string>Resources/icon-58.png</string>
-        <string>Resources/icon-50.png</string>
-        <string>Resources/icon-100.png</string>
-    </array>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Resources/icon-57.png</string>
+		<string>Resources/icon-114.png</string>
+		<string>Resources/icon-72.png</string>
+		<string>Resources/icon-144.png</string>
+		<string>Resources/icon-29.png</string>
+		<string>Resources/icon-58.png</string>
+		<string>Resources/icon-50.png</string>
+		<string>Resources/icon-100.png</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -24,5 +24,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.xamarin.QuartzSample</string>
 </dict>
 </plist>

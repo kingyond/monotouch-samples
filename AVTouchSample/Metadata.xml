@@ -3,5 +3,7 @@
 	<ID>2c1eba2d-8abc-408e-8ee8-a03ffac6ffde</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Intermediate</Level>
-	<Tags>Media, Graphics</Tags>
+	<Tags>Media, Touch</Tags>
+	<Gallery>true</Gallery>
+	<Brief>An example on using AVFoundation on iOS devices.</Brief>
 </SampleMetadata>

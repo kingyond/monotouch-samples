@@ -3,5 +3,7 @@
 	<ID>3d0e0a6c-a1cc-468f-904e-6a2c6a887113</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Advanced</Level>
-	<Tags>Graphics</Tags>
+	<Tags>Graphics, Touch, Games</Tags>
+	<Gallery>true</Gallery>
+	<Brief>Sample shows how to use the low-level OpenGL classes to create a touch painting application.</Brief>
 </SampleMetadata>

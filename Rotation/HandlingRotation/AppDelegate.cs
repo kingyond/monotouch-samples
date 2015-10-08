@@ -1,6 +1,6 @@
 using System;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using UIKit;
+using Foundation;
 
 namespace HandlingRotation {
 	[Register("AppDelegate")]
@@ -21,7 +21,7 @@ namespace HandlingRotation {
 			// create our window
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			window.MakeKeyAndVisible ();
-			
+
 			// are we running an iPhone or an iPad?
 			DetermineCurrentDevice ();
 
@@ -35,7 +35,7 @@ namespace HandlingRotation {
 					iPhoneHome = new HandlingRotation.Screens.iPhone.Home.HomeScreen ();
 					mainNavController.PushViewController (iPhoneHome, false);
 					break;
-				
+
 				case DeviceType.iPad:
 					iPadHome = new HandlingRotation.Screens.iPad.Home.HomeScreenPad ();
 					mainNavController.PushViewController (iPadHome, false);
@@ -50,7 +50,7 @@ namespace HandlingRotation {
 		protected void DetermineCurrentDevice ()
 		{
 			// figure out the current device type
-			if (UIScreen.MainScreen.Bounds.Height == 1024 || UIScreen.MainScreen.Bounds.Width == 1024) {
+			if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad) {
 				CurrentDevice = DeviceType.iPad;
 			} else {
 				CurrentDevice = DeviceType.iPhone;

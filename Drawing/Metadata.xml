@@ -3,5 +3,7 @@
 	<ID>064a9ab4-1e58-4cf6-a1c2-aab04997aa57</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Intermediate</Level>
-	<Tags>Graphics, iPad</Tags>
+	<Tags>Graphics</Tags>
+	<Gallery>true</Gallery>
+	<Brief>This sample illustrates how to use Core Graphics in Xamarin.iOS.</Brief>
 </SampleMetadata>

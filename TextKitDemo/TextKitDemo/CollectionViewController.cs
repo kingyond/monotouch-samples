@@ -1,7 +1,7 @@
 using System;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 namespace TextKitDemo
 {
@@ -42,12 +42,12 @@ namespace TextKitDemo
 			return cell;
 		}
 
-		public override int NumberOfSections (UICollectionView collectionView)
+		public override nint NumberOfSections (UICollectionView collectionView)
 		{
 			return 1;
 		}
 
-		public override int GetItemsCount (UICollectionView collectionView, int section)
+		public override nint GetItemsCount (UICollectionView collectionView, nint section)
 		{
 			return DemoModel.Demos.Count;
 		}
@@ -59,9 +59,7 @@ namespace TextKitDemo
 			var newViewController = (TextViewController) Storyboard.InstantiateViewController (demo.ViewControllerIdentifier);
 			newViewController.Title = demo.Title;
 			newViewController.model = demo;
-
-			if (newViewController != null)
-				NavigationController.PushViewController (newViewController,true);
+			NavigationController.PushViewController (newViewController, true);
 
 			return;
 		}

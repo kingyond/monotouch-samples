@@ -5,4 +5,6 @@
 	<Level>Beginning</Level>
 	<Tags>Game Center</Tags>
     <LicenseRequirement>Starter</LicenseRequirement>
+	<Gallery>true</Gallery>
+	<Brief>Sample shows how to integrate your app with GameCenter services.</Brief>
 </SampleMetadata>

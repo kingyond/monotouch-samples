@@ -1,12 +1,11 @@
 using System;
 using OpenTK.Graphics.ES20;
-using MonoTouch.OpenGLES;
+using OpenGLES;
 using System.IO;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.CoreImage;
-using MonoTouch.CoreGraphics;
-using System.Drawing;
+using Foundation;
+using UIKit;
+using CoreImage;
+using CoreGraphics;
 
 namespace OpenGLES20Example
 {
@@ -32,7 +31,8 @@ namespace OpenGLES20Example
 			GL.TexParameter (TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int) All.Nearest);
 			GL.TexParameter (TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int) All.Nearest);
 
-			string extension = Path.GetExtension (filename);
+			//TODO Remove the Substring method if you don't support iOS versions prior to iOS 6.
+			string extension = Path.GetExtension (filename).Substring(1);
 			string baseFilename = Path.GetFileNameWithoutExtension (filename);
 
 			string path = NSBundle.MainBundle.PathForResource (baseFilename, extension);
@@ -42,8 +42,8 @@ namespace OpenGLES20Example
 			if (image == null)
 				return;
 
-			int width = image.CGImage.Width;
-			int height = image.CGImage.Height;
+			nint width = image.CGImage.Width;
+			nint height = image.CGImage.Height;
 
 			CGColorSpace colorSpace = CGColorSpace.CreateDeviceRGB ();
 			byte [] imageData = new byte[height * width * 4];
@@ -53,10 +53,10 @@ namespace OpenGLES20Example
 			context.TranslateCTM (0, height);
 			context.ScaleCTM (1, -1);
 			colorSpace.Dispose ();
-			context.ClearRect (new RectangleF (0, 0, width, height));
-			context.DrawImage (new RectangleF (0, 0, width, height), image.CGImage);
+			context.ClearRect (new CGRect (0, 0, width, height));
+			context.DrawImage (new CGRect (0, 0, width, height), image.CGImage);
 
-			GL.TexImage2D (TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, imageData);
+			GL.TexImage2D (TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, (int)width, (int)height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, imageData);
 			context.Dispose ();
 		}
 

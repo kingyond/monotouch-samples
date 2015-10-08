@@ -3,5 +3,7 @@
 	<ID>2b33d106-c9e8-424e-b00f-dd8dd12ca66c</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Beginning</Level>
-	<Tags>User Interface</Tags>
+	<Tags>Getting Started, User Interface</Tags>
+	<Gallery>true</Gallery>
+	<Brief>Sample demonstrates how to use a C# event on a button press to run a callback.</Brief>
 </SampleMetadata>

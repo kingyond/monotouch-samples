@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using System.Drawing;
+using Foundation;
+using UIKit;
+using CoreGraphics;
 using OpenTK.Platform;
-using MonoTouch.OpenGLES;
+using OpenGLES;
 using OpenTK.Graphics.ES11;
 
 namespace LowLevelGLPaint
@@ -20,11 +20,11 @@ namespace LowLevelGLPaint
 			}
 		}
 	}
-	
+
 	// The name AppDelegate is referenced in the MainWindow.xib file.
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		
+
 		const int PaletteHeight = 30;
 		const int PaletteSize = 5;
 		const int AccelerometerFrequency = 25;
@@ -43,33 +43,40 @@ namespace LowLevelGLPaint
 		DateTime lastTime;
 
 		PaintingView drawingView;
-		
+
 		// This method is invoked when the application has loaded its UI and its ready to run
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			RectangleF rect = UIScreen.MainScreen.ApplicationFrame;
+			CGRect rect = UIScreen.MainScreen.ApplicationFrame;
 
-			
 			//Create the OpenGL drawing view and add it to the window
-			drawingView = new PaintingView (new RectangleF (rect.Location, rect.Size));
-			window.AddSubview (drawingView);
+			drawingView = new PaintingView (new CGRect (rect.Location, rect.Size));
+			var viewController = new UIViewController ();
+			viewController.View = drawingView;
+			window.RootViewController = viewController;
 
 			// Create a segmented control so that the user can choose the brush color.
-			UISegmentedControl segmentedControl = new UISegmentedControl (new[]{
-					UIImage.FromFile ("Images/Red.png"),
-					UIImage.FromFile ("Images/Yellow.png"),
-					UIImage.FromFile ("Images/Green.png"),
-					UIImage.FromFile ("Images/Blue.png"),
-					UIImage.FromFile ("Images/Purple.png"),
-			});
+			var images = new[] {
+				UIImage.FromFile ("Images/Red.png"),
+				UIImage.FromFile ("Images/Yellow.png"),
+				UIImage.FromFile ("Images/Green.png"),
+				UIImage.FromFile ("Images/Blue.png"),
+				UIImage.FromFile ("Images/Purple.png")
+			};
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
+				// we want the original colors, which is not the default iOS7 behaviour, so we need to
+				// replace them with ones having the right UIImageRenderingMode
+				for (int i = 0; i < images.Length; i++)
+					images [i] = images [i].ImageWithRenderingMode (UIImageRenderingMode.AlwaysOriginal);
+			}
+			var segmentedControl = new UISegmentedControl (images);
 
 			// Compute a rectangle that is positioned correctly for the segmented control you'll use as a brush color palette
-			RectangleF frame = new RectangleF (rect.X + LeftMarginPadding, rect.Height - PaletteHeight - TopMarginPadding,
+			var frame = new CGRect (rect.X + LeftMarginPadding, rect.Height - PaletteHeight - TopMarginPadding,
 				rect.Width - (LeftMarginPadding + RightMarginPadding), PaletteHeight);
 			segmentedControl.Frame = frame;
 			// When the user chooses a color, the method changeBrushColor: is called.
 			segmentedControl.ValueChanged += ChangeBrushColor;
-			segmentedControl.ControlStyle = UISegmentedControlStyle.Bar;
 			// Make sure the color of the color complements the black background
 			segmentedControl.TintColor = UIColor.DarkGray;
 			// Set the third color (index values start at 0)
@@ -85,7 +92,7 @@ namespace LowLevelGLPaint
 			HslToRgb (2.0f / PaletteSize, PaintingView.Saturation, PaintingView.Luminosity, out r, out g, out b);
 			// Set the color using OpenGL
 			GL.Color4 (r, g, b, PaintingView.BrushOpacity);
-			
+
 			// Look in the Info.plist file and you'll see the status bar is hidden
 			// Set the style to black so it matches the background of the application
 			app.SetStatusBarStyle (UIStatusBarStyle.BlackTranslucent, false);
@@ -95,18 +102,17 @@ namespace LowLevelGLPaint
 			//Configure and enable the accelerometer
 			UIAccelerometer.SharedAccelerometer.UpdateInterval = 1.0f / AccelerometerFrequency;
 			UIAccelerometer.SharedAccelerometer.Acceleration += OnAccelerated;
-			
+
 			window.MakeKeyAndVisible ();
-	
+
 			return true;
 		}
-	
+
 		// This method is required in iPhoneOS 3.0
 		public override void OnActivated (UIApplication application)
 		{
 		}
-		
-		
+
 		private void OnAccelerated (object sender, UIAccelerometerEventArgs e)
 		{
 #if LINQ
@@ -119,7 +125,7 @@ namespace LowLevelGLPaint
 			myAccelerometer [2] = e.Acceleration.Z * FilteringFactor + myAccelerometer [2] * (1.0 - FilteringFactor);
 #endif
 
-			// Odd; ObjC always uses myAccelerometer[0], while 
+			// Odd; ObjC always uses myAccelerometer[0], while
 			// I'd expect myAccelerometer[0 .. 2]
 			var x = e.Acceleration.X - myAccelerometer [0];
 			var y = e.Acceleration.Y - myAccelerometer [0];
@@ -132,7 +138,7 @@ namespace LowLevelGLPaint
 				lastTime = DateTime.Now;
 			}
 		}
-		
+
 		static void HslToRgb (float h, float s, float l, out float r, out float g, out float b)
 		{
 			// Check for saturation. If there isn't any just return the luminance value for each, which results in gray.
@@ -180,7 +186,7 @@ namespace LowLevelGLPaint
 			g = temp [1];
 			b = temp [2];
 		}
-		
+
 		private void ChangeBrushColor (object sender, EventArgs e)
 		{
 			selectSound.Play ();

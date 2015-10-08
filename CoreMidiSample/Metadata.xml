@@ -3,5 +3,7 @@
 	<ID>C30005F2-43D7-4242-85C8-5C13BFE7BBA5</ID>
 	<IsFullApplication>true</IsFullApplication>
 	<Level>Advanced</Level>
-	<Tags>MIDI, Audio</Tags>
+	<Tags>Media</Tags>
+	<Gallery>true</Gallery>
+	<Brief>This sample shows the basics of how to probe for the MIDI hardware.</Brief>
 </SampleMetadata>

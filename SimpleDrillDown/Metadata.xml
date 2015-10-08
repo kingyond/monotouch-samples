@@ -4,4 +4,6 @@
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Beginning</Level>
 	<Tags>User Interface</Tags>
+	<Gallery>true</Gallery>
+	<Brief>Demonstrates making a table with cells that can be drilled further down to a detailed view.</Brief>
 </SampleMetadata>

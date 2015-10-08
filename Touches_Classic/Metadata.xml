@@ -3,5 +3,7 @@
 	<ID>bbe77d57-f012-4765-9dc7-4e64e37b3cf0</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Beginning</Level>
-	<Tags>User Interface</Tags>
+	<Tags>User Interface, Touch</Tags>
+	<Gallery>true</Gallery>
+	<Brief>An example on how to handle touches to move multiple objects.</Brief>
 </SampleMetadata>

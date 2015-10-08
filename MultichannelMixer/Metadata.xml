@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SampleMetadata>
+  <ID>2284ccd9-dc38-480b-8435-7458f6b28962</ID>
+  <IsFullApplication>false</IsFullApplication>
+  <Level>Advanced</Level>
+  <Tags>Media</Tags>
+  <Gallery>true</Gallery>
+  <Brief>Show how to build an Audio Unit graph with Multichannel Mixer and RemoteIO unit.</Brief>
+</SampleMetadata>

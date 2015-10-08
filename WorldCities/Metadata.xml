@@ -3,5 +3,7 @@
 	<ID>c66750f5-a4dd-4ea8-b5f8-10c01098bae0</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Intermediate</Level>
-	<Tags>User Interface, Navigation</Tags>
+	<Tags>User Interface, Maps + Location</Tags>
+	<Gallery>true</Gallery>
+	<Brief>A simple example of using the Map Kit API in a Xamarin.iOS application.</Brief>
 </SampleMetadata>

@@ -6,4 +6,6 @@
 	<Tags>Media, Async</Tags>
 	<SupportedPlatforms>iOS</SupportedPlatforms>
     <LicenseRequirement>Starter</LicenseRequirement>
+	<Gallery>true</Gallery>
+	<Brief>This app demonstrates how to use the Async/Await feature which is available in Xamarin.iOS 6.4.</Brief>
 </SampleMetadata>

@@ -3,5 +3,7 @@
 	<ID>75808f39-d9fb-42c3-ac26-dc680741235e</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Intermediate</Level>
-	<Tags>EventKit</Tags>
+	<Tags>Platform Features</Tags>
+	<Gallery>true</Gallery>
+	<Brief>This sample application utilizes the EventKit API to allow a user to create events at specific times.</Brief>
 </SampleMetadata>

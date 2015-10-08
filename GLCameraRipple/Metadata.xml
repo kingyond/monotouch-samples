@@ -3,5 +3,7 @@
 	<ID>70831482-A373-41AE-B5AC-37DA900C5561</ID>
 	<IsFullApplication>true</IsFullApplication>
 	<Level>Advanced</Level>
-	<Tags>OpenGL, OpenTK, GLKit, AVFoundation, Media, Video, Shaders</Tags>
+	<Tags>Media, Graphics</Tags>
+	<Gallery>true</Gallery>
+	<Brief>Shows how to use GLKit to render OpenGL frames and AVFoundation to capture video from camera.</Brief>
 </SampleMetadata>

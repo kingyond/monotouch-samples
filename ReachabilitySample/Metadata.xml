@@ -3,5 +3,7 @@
 	<ID>7973effb-bd18-4109-b01f-a377f6f9cb73</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Beginning</Level>
-	<Tags>Shared Resources</Tags>
+	<Tags>Cloud</Tags>
+	<Gallery>true</Gallery>
+	<Brief>This sample shows how to find out what kind of connectivity is available.</Brief>
 </SampleMetadata>

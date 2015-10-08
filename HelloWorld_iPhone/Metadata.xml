@@ -3,5 +3,7 @@
 	<ID>adbcadf5-c8fa-41bc-897b-4e8b20b98d26</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Beginning</Level>
-	<Tags>User Interface, iPhone</Tags>
+	<Tags>Getting Started, User Interface</Tags>
+	<Gallery>true</Gallery>
+	<Brief>A simple hello world sample demonstrating the use of the UIButton and UILabel controls.</Brief>
 </SampleMetadata>

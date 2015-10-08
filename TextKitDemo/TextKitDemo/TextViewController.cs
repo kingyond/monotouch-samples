@@ -1,14 +1,15 @@
 using System;
-using System.Drawing;
+using CoreGraphics;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 namespace TextKitDemo
 {
 	public class TextViewController : UIViewController
 	{
 		public DemoModel model;
+		NSObject notification;
 
 		public TextViewController (IntPtr handle) : base (handle)
 		{
@@ -18,13 +19,25 @@ namespace TextKitDemo
 		{
 		}
 
-		public override void ViewDidLoad ()
+		public override void ViewDidAppear (bool animated)
 		{
-			base.ViewDidLoad ();
+			base.ViewDidAppear (animated);
 
-			UIApplication.Notifications.ObserveContentSizeCategoryChanged (delegate {
+			if (notification != null)
+				notification.Dispose ();
+			notification = UIApplication.Notifications.ObserveContentSizeCategoryChanged (delegate {
 				PreferredContentSizeChanged ();
 			});
+		}
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			base.ViewDidDisappear (animated);
+
+			if (notification != null) {
+				notification.Dispose ();
+				notification = null;
+			}
 		}
 
 		public virtual void PreferredContentSizeChanged ()

@@ -3,5 +3,7 @@
 	<ID>70af1e49-37c1-40b1-963e-ddb294c1eaff</ID>
 	<IsFullApplication>false</IsFullApplication>
 	<Level>Advanced</Level>
-	<Tags>Shared Resources</Tags>
+	<Tags>Platform Features</Tags>
+	<Gallery>true</Gallery>
+	<Brief>Using Apple's keychain storage for storing information securely within an application.</Brief>
 </SampleMetadata>

@@ -1,11 +1,11 @@
 using System;
-using MonoTouch.UIKit;
-namespace Example_CoreAnimation.Screens.iPad
+using UIKit;
+
+namespace CoreAnimationExample
 {
 	public interface IDetailView
 	{
-		void AddContentsButton (UIBarButtonItem button);
-		void RemoveContentsButton ();
+		event EventHandler ContentsButtonClicked;
 	}
 }
 

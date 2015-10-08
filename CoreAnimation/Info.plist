@@ -4,22 +4,22 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>Animation</string>
-    	<key>CFBundleIconFiles</key>
-    	<array>
-        	<string>Resources/icon-57.png</string>
-        	<string>Resources/icon-114.png</string>
-        	<string>Resources/icon-72.png</string>
-        	<string>Resources/icon-144.png</string>
-        	<string>Resources/icon-29.png</string>
-        	<string>Resources/icon-58.png</string>
-        	<string>Resources/icon-50.png</string>
-        	<string>Resources/icon-100.png</string>
-    	</array>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Resources/icon-57.png</string>
+		<string>Resources/icon-114.png</string>
+		<string>Resources/icon-72.png</string>
+		<string>Resources/icon-144.png</string>
+		<string>Resources/icon-29.png</string>
+		<string>Resources/icon-58.png</string>
+		<string>Resources/icon-50.png</string>
+		<string>Resources/icon-100.png</string>
+	</array>
 	<key>MinimumOSVersion</key>
-	<string>3.2</string>
+	<string>5.1.1</string>
 	<key>UIDeviceFamily</key>
 	<array>
-		<string>2</string>
+		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -32,6 +32,14 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleIdentifier</key>
+	<string>com.your-company.animation</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>
